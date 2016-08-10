@@ -15,5 +15,5 @@ war {
 }
 dependencies {
     providedCompile 'javax.servlet:javax.servlet-api:4.0.0-b01'
-    compile 'org.springframework.boot:spring-boot-starter-web:1.4.0.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-web:1.4.0.RELEASE', 'org.springframework.boot:spring-boot-starter-actuator:1.4.0.RELEASE', 'org.springframework.boot:spring-boot-starter-data-jpa:1.4.0.RELEASE', 'mysql:mysql-connector-java:6.0.3'
 }
