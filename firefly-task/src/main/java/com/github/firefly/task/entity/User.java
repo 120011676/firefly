@@ -1,5 +1,7 @@
 package com.github.firefly.task.entity;
 
+import org.jooq.impl.CustomRecord;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -8,7 +10,7 @@ import javax.validation.constraints.NotNull;
  */
 @Entity
 @Table(name = "user")
-public class User {
+public class User extends CustomRecord<User> {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -16,6 +18,10 @@ public class User {
     private String username;
     @NotNull
     private String password;
+
+    protected User(org.jooq.Table<User> table) {
+        super(table);
+    }
 
     public Integer getId() {
         return id;

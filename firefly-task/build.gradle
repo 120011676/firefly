@@ -4,7 +4,8 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath "org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE"
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE',
+                'org.springframework.boot:spring-boot-devtools:1.4.0.RELEASE'
     }
 }
 apply plugin: 'war'
@@ -13,7 +14,24 @@ war {
     baseName = 'ROOT'
     version = '0.0.1'
 }
+springBoot {
+    executable = true
+}
+bootRepackage {
+    mainClass = 'com.github.firefly.task.Application'
+}
 dependencies {
     providedCompile 'javax.servlet:javax.servlet-api:4.0.0-b01'
-    compile 'org.springframework.boot:spring-boot-starter-web:1.4.0.RELEASE', 'org.springframework.boot:spring-boot-starter-actuator:1.4.0.RELEASE', 'org.springframework.boot:spring-boot-starter-data-jpa:1.4.0.RELEASE', 'mysql:mysql-connector-java:6.0.3'
+    compile 'org.springframework.boot:spring-boot-starter-web:1.4.0.RELEASE',
+            'org.springframework.boot:spring-boot-starter-actuator:1.4.0.RELEASE',
+            'org.springframework.boot:spring-boot-starter-data-jpa:1.4.0.RELEASE',
+            'org.springframework.boot:spring-boot-starter-cache:1.4.0.RELEASE',
+            'org.springframework.boot:spring-boot-starter-jooq:1.4.0.RELEASE',
+            'mysql:mysql-connector-java:6.0.3',
+//            'org.jinq:jinq-jpa:1.8.11',
+//            'org.jooq:jooq:3.8.4',
+//            'org.jooq:jooq-meta:3.8.4',
+//            'org.jooq:jooq-codegen:3.8.4',
+            'org.jinq:jinq-jooq:1.8.11',
+            'org.apache.commons:commons-dbcp2:2.1.1'
 }
